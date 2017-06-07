@@ -15,7 +15,7 @@ sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm 
 ```
 
-Edit /etc/yum.repos.d/elrepo.repo and change the enabled key to '1' under [[elrepo-kernel]].
+Edit /etc/yum.repos.d/elrepo.repo and change the enabled key to '1' under [elrepo-kernel].
 
 ## [](#header-2) Step Two - Install the latest Mainline Kernel
 

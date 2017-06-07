@@ -6,7 +6,7 @@ layout: default
 
 ### [](#header-3)Tutorials
 
-[Installing the SR Kernel on CentOS 7](tutorials/centos7).
+[Installing the SR Kernel on CentOS 7](tutorials/centos7)
 
 * * *
 This page is maintained by Drexel University. 
