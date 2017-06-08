@@ -52,7 +52,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 sudo reboot
 ```
 
-## [](#header-2)Step Four - Verify
+## [](#header-2)Step Four - Verify 
 
 The last step is to confirm that the correct kernel was booted. 
 
@@ -64,6 +64,24 @@ The output should be the kernel version that was selected in Step Three.
 
 ```
 4.11.3-1.el7.elrepo.x86_64
+```
+
+## [](#header-2)Step Five - Enable Segment Routing
+
+In order to receive packets where a SR header exists and the destination address is the local machine, each interface must have a sysctl set. 
+
+create file /etc/sysctl.d/98-seg6.conf and add the following lines. In this example, we are enabling for eth0 and eth1. 
+
+```
+net.ipv6.conf.all.seg6_enabled = 1
+net.ipv6.conf.eth0.seg6_enabled = 1
+net.ipv6.conf.eth1.seg6_enabled = 1
+```
+
+Finally, run the following command for the sysctl to take effect:
+
+```
+sudo sysctl --system
 ```
 
 That is all, now you are ready to send and route IPv6 SR packets. 
