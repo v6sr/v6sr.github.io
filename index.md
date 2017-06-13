@@ -8,6 +8,9 @@ layout: default
 
 [Installing the SR Kernel on CentOS 7](tutorials/centos7)
 
+[Utilizing the SRv6 C API](tutorials/c-api)
+
+
 * * *
 This page is maintained by Drexel University. 
 
