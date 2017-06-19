@@ -2,6 +2,8 @@
 layout: default
 ---
 
+[Return to the Main page](../)
+
 # [](#header-1) Introduction
 
 This document describes how to use the SRv6 C API on Linux. This API is compatible with the  <a href="https://tools.ietf.org/html/rfc3542#section-7">RFC 3542</a> API for routing header type 0 (Source Routing). Please Section 7 in RFC3542 for additional details.
@@ -37,6 +39,15 @@ make
 ```
 
 This should build a static library, libSegmentRoutingAPI.a in the sr_api/ directory. 
+
+Alternatively, you may use the provided convenience script (assumes the `cmake3` command is available):
+```shell
+cd v6sr_c_api
+./build.sh
+```
+
+which will place all build output, including the library file, into the `build/` directory.
+
 
 ## [](#header-2) Step Three - Example Test
 
@@ -108,6 +119,20 @@ rv = setsockopt( sockfd, IPPROTO_IPV6, IPV6_RTHDR, NULL, 0 );
 ```
 
 At this point, you can send packets with a SRH from your application running on a Linux host. 
+
+# [](#header-1) Ping Server Utility
+Also provided in the repository, for reference and testing, is a simple server application that reads a route from a file and sends a `PING.` message to connected clients along this route.
+
+The program reads SIDs (addresses) from `segments.txt` file in the same directory.  The addresses must be provided one per line, in reverse order (with the last segment first).  The last segment **MUST** be the destination address.  Comment lines starting with `#` are supported.
+
+Assuming the build was done with the included `build.sh` utility, the server binary will be located in `build/ping/SRHPingServer`, and can be invoked in the following way:
+
+```
+SRHPingServer -a <bind address> -p <port> 
+Where:
+<bind address> - The address of the interface to bind the server to
+<port>         - The port to bind to
+```
 
 [Return to the Main page](../)
 
