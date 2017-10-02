@@ -10,6 +10,8 @@ layout: default
 
 [Utilizing the SRv6 C API](tutorials/c-api)
 
+[Binding Subnets to Applications](tutorials/subnet)
+
 
 * * *
 This page is maintained by Drexel University. 
